@@ -1,0 +1,31 @@
+<table ng-table="tableParams" class="table" style="text-align: center;">
+  <tr ng-repeat="entity in entities">
+    <td data-title="'Име'">
+      {{entity.advert.advertName}}
+    </td>
+    <td data-title="'Категорија'">
+      {{entity.advert.category.name}}
+    </td>
+    <td data-title="'Цена'">
+      5
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td style="border-bottom: 1px solid #c0c0c0; border-left: 1px solid #c0c0c0"><b>Вкупно:</b></td>
+    <td style="border-bottom: 1px solid #c0c0c0; border-right: 1px solid #c0c0c0 ">
+      <b>${{total}}</b>
+    </td>
+  </tr>
+</table>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="margin-bottom: 100px">
+  <input type="hidden" name="cmd" value="_cart">
+  <input type="hidden" name="upload" value="1">
+  <input type="hidden" name="business" value="test_button@gmail.com">
+  <input type="hidden" ng-repeat="entity in entities" name="{{'item_name_'}}{{$index+1}}" value="{{entity.advert.advertName}}"/>
+  <input type="hidden" ng-repeat="entity in entities" name="{{'amount_'}}{{$index+1}}" value="{{5 | number:2}}"/>
+  <input class="btn btn-success btn-lg col-xs-offset-10" type="submit" value="Плати со PAYPAL"/>
+</form>
+

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="e-comerce:war">
+    <output-path>$PROJECT_DIR$/../emk_proekt/target</output-path>
+    <root id="archive" name="web-programming.war">
+      <element id="artifact" artifact-name="e-comerce:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,8 @@
+<hr />
+<nav ng-include="'nav/sideMenu.html'"></nav>
+<hr />
+
+<!-- one tr element for each grade -->
+<div ng-repeat="advert in entities">
+	<advert-display entity="advert"></advert-display>
+</div>

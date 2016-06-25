@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/security
+http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+    <security:global-method-security
+            secured-annotations="enabled"/>
+
+   <!-- <security:debug/>-->
+
+    <security:authentication-manager id="authenticationManager">
+        <security:authentication-provider>
+            <security:jdbc-user-service
+                    data-source-ref="dataSource"
+                    users-by-username-query="select username, user_password, true as enabled from users where username=?"
+                    authorities-by-username-query="select username, user_role from users where username =?"/>
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+    <security:http realm="WP Protected API" use-expressions="true"
+                   auto-config="false" create-session="stateless"
+                   authentication-manager-ref="authenticationManager" entry-point-ref="unauthorizedEntryPoint">
+
+        <security:custom-filter ref="authTokenFilter"
+                                position="FORM_LOGIN_FILTER"/>
+
+        <security:intercept-url pattern="/data/rest/user/authenticate" access="permitAll"/>
+
+        <security:intercept-url pattern="/data/rest/cities/**" method="GET" access="permitAll"/>
+        <security:intercept-url pattern="/data/rest/cities/**" access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/data/rest/advert/apply/adverts/**" access="hasAnyRole('ROLE_ADMIN','ROLE_COMPANY')"/>
+        <security:intercept-url pattern="/data/rest/advert/apply/details/**" access="hasAnyRole('ROLE_ADMIN','ROLE_COMPANY')"/>
+        <security:intercept-url pattern="/data/rest/categories/**" method="GET" access="permitAll"/>
+        <security:intercept-url pattern="/data/rest/categories/**" access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/data/rest/adverts/**" method="GET" access="permitAll"/>
+        <security:intercept-url pattern="/data/rest/adverts/**" access="hasAnyRole('ROLE_ADMIN','ROLE_COMPANY')"/>
+        <security:intercept-url pattern="/data/rest/users/register/**" method="DELETE" access="hasRole('ROLE_ADMIN')"/>
+
+        <security:intercept-url pattern="**" access="permitAll"/>
+
+        <security:port-mappings>
+            <security:port-mapping http="9966" https="9443"/>
+        </security:port-mappings>
+    </security:http>
+
+    <bean id="unauthorizedEntryPoint" class="mk.ukim.finki.wp.security.UnauthorizedEntryPoint"/>
+
+    <bean id="authTokenFilter"
+          class="mk.ukim.finki.wp.security.AuthenticationTokenProcessingFilter"/>
+</beans>

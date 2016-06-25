@@ -1,0 +1,63 @@
+<div class="row" ng-if="!$root.user || $root.user.role == 'ROLE_ADMIN'">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div class="panel top-buffer">
+      <h2>Корисник</h2>
+      <div>
+        <label>Име</label>
+        <input type="text" class="form-control" ng-model="entity.fistName"/>
+      </div>
+      <div>
+        <label>Презиме</label>
+        <input type="text" class="form-control" ng-model="entity.lastName"/>
+      </div>
+      <div>
+        <label>Маил</label>
+        <input type="text" class="form-control" ng-model="entity.email"/>
+      </div>
+
+      <div>
+        <label>Корисничко име</label>
+        <input type="text" class="form-control" ng-model="entity.username"/>
+      </div>
+
+      <div>
+        <label>Лозинка</label>
+        <input type="password" class="form-control" ng-model="entity.password"/>
+      </div>
+      <br/>
+      <button ng-if="$root.user.role == 'ROLE_ADMIN'"  ng-click="save()" class="btn btn-info center-block">
+        <i class="glyphicon glyphicon-save"></i> Save
+      </button>
+      <a href="/e-comerce/#/login" class="aRedirect">
+      <button ng-if="$root.user.role != 'ROLE_ADMIN'" ng-click="save()" class="btn btn-info center-block">
+        <i class="glyphicon glyphicon-save"></i> Save
+      </button>
+      </a>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" ng-if="$root.user.role == 'ROLE_ADMIN'">
+    <h2 class="text-center">Корисници</h2><br/>
+    <table class="top-buffer table table-responsive text-center">
+      <tr >
+        <th class="text-center">Корисничко име</th>
+        <th class="text-center">Промени/Избриши</th>
+      </tr>
+      <!-- one tr element for each grade -->
+      <tr ng-repeat="e in entities">
+        <td>{{ e.username }}</td>
+        <td>
+          <button ng-click="edit(e.id)" class="btn btn-danger btn-xs pull-left">
+            <i class="glyphicon glyphicon-plus"></i> Промени
+          </button>
+          <button ng-click="remove(e.id)" class="btn btn-danger btn-xs pull-right">
+            <i class="glyphicon glyphicon-minus"></i> Избриши
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="row" ng-if="$root.user.role == 'ROLE_USERS' || $root.user.role == 'ROLE_COMPANY'">
+  <h2>Access Denied</h2>
+</div>

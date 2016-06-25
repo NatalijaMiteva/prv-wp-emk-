@@ -1,0 +1,75 @@
+<div class="row paper-style">
+
+  {{ rootScope.advert }}
+
+  <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">
+			<h2 style="text-align: center" ng-if="entity.category.name == 'Работа'" class="page-header">{{entity.advertName}} <span class="text-danger pull-right glyphicon glyphicon-bookmark"></span></h2>
+			<h2 style="text-align: center" ng-if="entity.category.name == 'Пракса'" class="page-header">{{entity.advertName}} <span class="text-primary pull-right glyphicon glyphicon-bookmark"></span></h2>
+			<h2 style="text-align: center" ng-if="entity.category.name == 'Волонтирање'" class="page-header">{{entity.advertName}} <span class="text-success pull-right glyphicon glyphicon-bookmark"></span></h2>
+
+			<h4  ng-if="entity.category.name == 'Работа'"><label class="label label-danger"><span class="glyphicon glyphicon-briefcase"></span> {{entity.category.name}}</label></h4>
+			<h4 ng-if="entity.category.name == 'Пракса'"><label class="label label-primary"><span class="glyphicon glyphicon-road"></span> {{entity.category.name}}</label></h4>
+			<h4 ng-if="entity.category.name == 'Волонтирање'"><label class="label label-success"><span class="glyphicon glyphicon-magnet"></span> {{entity.category.name}}</label></h4>
+			<p style="font-size: medium">
+       Категорија: <b>{{entity.category.name}}</b> <br/><br/>
+				<small>
+					Објавен на: <b>{{ entity.publishingDate | date:'MM/dd/yyyy' }}</b>  <br />
+					Активен до: <b>{{ entity.endingDate | date:'MM/dd/yyyy' }}</b>
+				</small>
+			</p>
+			<p><b>{{entity.city.name}}, {{entity.city.country}}</b></p>
+			<hr />
+			<p style="font-size: medium">Објавил:</p>
+			<h4>Огласот е објавен од {{entity.owner.fistName}}</h4>
+      <h4>Контакт: {{entity.owner.email}}</h4>
+			<hr />
+			<div class="caption">
+				<div class="row">
+					<div class="col-md-6">
+
+						<div class="caption">
+							<h4>Работна позиција:</h4>
+							<h5>{{entity.advertDescription.typeOfDeal}}</h5>
+						</div>
+
+						<div class="caption">
+							<h4>Работни часови дневно:</h4>
+							<h5>{{entity.advertDescription.dailyWorkingHours}}</h5>
+						</div>
+
+						<div class="caption">
+							<h4>Работни часови неделно:</h4>
+							<h5>{{entity.advertDescription.weekWorkingHours}}</h5>
+						</div>
+
+					</div>
+
+					<div class="col-md-6">
+
+						<div class="caption">
+							<h4>Работно време:</h4>
+							<h5>{{entity.advertDescription.workTime}}</h5>
+						</div>
+
+						<div class="caption">
+							<h4>Почетна плата:</h4>
+							<h5>{{entity.advertDescription.basicSalary}}</h5>
+						</div>
+
+						<div class="caption">
+							<h4>Дополнителен опис:</h4>
+							<h5>{{entity.advertDescription.optionalDescription}}</h5>
+						</div>
+
+					</div>
+				</div>
+				<div class="row" style="margin-top:40px; margin-bottom:20px" ng-if="$root.user">
+					<div class="col-md-4 col-g-4 col-lg-offset-4 col-md-offset-4 col-sm-12 col-xs-12" ng-if="$root.user.role != 'ROLE_COMPANY'">
+						<a  href="#" ng-click="save()" class="btn btn-danger btn-block btn-lg" >Аплицирај</a>
+
+					</div>
+				</div>
+			</div>
+
+	</div>
+</div>

@@ -1,0 +1,96 @@
+<div class="modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="$hide()">&times;</button>
+        <h4 class="modal-title">Додади нов оглас:</h4>
+      </div>
+      <div class="modal-body">
+        <div class="panel top-buffer">
+          <h2>Огласи</h2>
+          <div>
+            <label>Наслов на огласот: </label>
+            <input type="text"
+                   class="form-control"
+                   ng-model="entity.advertName"/>
+          </div>
+          <div>
+            <combo combo-type="categories" combo-required="true"
+                   combo-label="Категорија    :"
+                   combo-model="entity.category"
+                   combo-name="category">
+            </combo>
+          </div>
+          <div>
+            <combo combo-type="cities" combo-required="true"
+                   combo-label="Град    :"
+                   combo-model="entity.city"
+                   combo-name="cities">
+            </combo>
+          </div>
+          <div>
+            <label>Датум на објавување: </label>
+            <span>{{ entity.publishingDate | date:'MM/dd/yyyy' }}</span>
+          </div>
+          <div>
+            <label>Датум на завршување: </label>
+            <span>{{ entity.endingDate | date:'MM/dd/yyyy' }}</span>
+            <input type="date" ng-model="entity.endingDate" class="form-control"
+                   min="{{ dateToday | date:'yyyy-MM-dd' }}"/>
+          </div>
+          <div>
+            <h3>Информации за огласот</h3>
+            <div>
+              <label>Работна позиција: </label>
+              <input type="text"
+                     required="true"
+                     class="form-control"
+                     ng-model="entity.advertDescription.typeOfDeal"/>
+            </div>
+            <div>
+              <label>Број на работни часови дневно: </label>
+              <input type="number"
+                     required="true"
+                     class="form-control"
+                     ng-model="entity.advertDescription.dailyWorkingHours"/>
+            </div>
+            <div>
+              <label>Број на работни часови неделно: </label>
+              <input type="number"
+                     required="true"
+                     class="form-control"
+                     ng-model="entity.advertDescription.weekWorkingHours"/>
+            </div>
+            <div>
+              <label>Работен период во денот: </label>
+              <input type="text"
+                     required="true"
+                     class="form-control"
+                     ng-model="entity.advertDescription.workTime"/>
+            </div>
+            <div>
+              <label>Бруто плата: </label>
+              <input type="number"
+                     required="true"
+                     class="form-control"
+                     ng-model="entity.advertDescription.basicSalary"/>
+            </div>
+            <div>
+              <label>Дополнителен опис (опционално): </label>
+					<textarea rows="5" cols="50"
+                    ng-model="entity.advertDescription.optionalDescription"></textarea>
+            </div>
+
+          </div>
+
+
+          <button class="btn btn-danger center-block" ng-click="save()">
+            <i class="glyphicon glyphicon-save"></i>
+            Зачувај
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
