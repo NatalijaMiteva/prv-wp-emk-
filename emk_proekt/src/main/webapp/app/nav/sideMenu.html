@@ -9,9 +9,10 @@
 	</div>
 
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-		<ul class="nav navbar-nav">
+		<ul class="nav navbar-nav ">
+
 			<li ng-repeat="cat in categories" ng-switch on="cat.id">
-				<a ng-switch-when="1" href="#/browse_category/{{cat.id}}"><span class="glyphicon glyphicon-briefcase"></span> {{ cat.name }} </a>
+        <a ng-switch-when="1" href="#/browse_category/{{cat.id}}"><span class="glyphicon glyphicon-briefcase"></span> {{ cat.name }} </a>
 				<a ng-switch-when="2" href="#/browse_category/{{cat.id}}"><span class="glyphicon glyphicon-road"></span> {{ cat.name }} </a>
 				<a ng-switch-when="3" href="#/browse_category/{{cat.id}}"><span class="glyphicon glyphicon-magnet"></span> {{ cat.name }} </a>
 			</li>

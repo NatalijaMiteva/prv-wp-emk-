@@ -1,38 +1,39 @@
-<div class="col-md-6">
+<div class="col-md-4">
   <div ng-if="entity.category.name == 'Работа'" class="panel panel-default">
     <a href="#/advert/details/{{entity.id}}" class="cliclable">
       <div class="panel-heading advert-panel-header-danger">
-        <h3>
-          <small class="pull-right"><p><span class="glyphicon glyphicon-briefcase"></span> {{ entity.category.name }}
-          </p></small>
-          <span class="glyphicon glyphicon-bullhorn"></span> {{ entity.advertName }}
+        <h3 class="text-center">
+
+          {{ entity.advertName }}<br/>
+          <div class=" text-capitalize" style="font-size: small; margin-top:2% "><p><span class="glyphicon glyphicon-briefcase"></span> {{ entity.category.name }}
+          </p></div>
         </h3>
       </div>
     </a>
 
     <div class="panel-body">
-      <div class="caption">
-        <h4>Град: {{ entity.city.name }}</h4>
-        <h4>Работна позиција: {{ entity.advertDescription.typeOfDeal }}</h4>
-        <h4>Работни часови дневно: {{
+      <div>
+        <h4><b>Град:</b> {{ entity.city.name }}</h4>
+        <h4><b>Работна позиција:</b> {{ entity.advertDescription.typeOfDeal }}</h4>
+        <h4><b>Работни часови дневно:</b> {{
           entity.advertDescription.dailyWorkingHours }}</h4>
-        <h4>Бруто плата: {{ entity.advertDescription.basicSalary }}</h4>
+        <h4><b>Бруто плата:</b> {{ entity.advertDescription.basicSalary }}</h4>
       </div>
     </div>
-    <div class="col-md-2" ng-if="$root.user.role == 'ROLE_USERS'">
-      <button class="btn btn-primary btn-xs" ng-click="addToCart()">
-        <i class="fa fa-fw fa-shopping-cart"></i> Add to cart &nbsp;<span
-        class="glyphicon glyphicon-shopping-cart"></span>
-      </button>
-    </div>
-    <br>
-    <br>
+    <div class="center">
+      <div class="col-md-4" ng-if="$root.user.role == 'ROLE_USERS'">
+        <button class="btn btn-dangerous btn-xs"  ng-click="addToCart()">
+          <i class="fa fa-fw fa-shopping-cart"></i> Во кошничка &nbsp;<span
+          class="glyphicon glyphicon-shopping-cart"></span>
+        </button>
+      </div>
 
-    <div class="col-md-2" ng-if="$root.user.role == 'ROLE_USERS'">
-      <button class="btn btn-dangerous btn-xs" ng-click="addToFavorite()">
-        <i class="fa fa-fw fa-star"></i> Add to favorite &nbsp;<span
-        class="glyphicon glyphicon-star"></span>
-      </button>
+      <div class="col-md-4" ng-if="$root.user.role == 'ROLE_USERS'">
+        <button class="btn btn-dangerous btn-xs " style="margin-left: 100%;"  ng-click="addToFavorite()">
+          <i class="fa fa-fw fa-star"></i> Омилени &nbsp;<span
+          class="glyphicon glyphicon-star"></span>
+        </button>
+      </div>
     </div>
     <br>
     <br>
@@ -44,36 +45,36 @@
   <div ng-if="entity.category.name == 'Пракса'" class="panel panel-default">
     <a href="#/advert/details/{{entity.id}}" class="cliclable">
       <div class="panel-heading advert-panel-header-primary">
-        <h3>
-          <small class="pull-right"><p><span class="glyphicon glyphicon-road"></span> {{ entity.category.name }}</p>
-          </small>
-          <span class="glyphicon glyphicon-bullhorn"></span> {{ entity.advertName }}
+        <h3 class="text-center">
+{{ entity.advertName }}<br/>
+          <div class=" text-capitalize" style="font-size: small; margin-top:2% "><p><span class="glyphicon glyphicon-road"></span> {{ entity.category.name }}
+          </p></div>
         </h3>
       </div>
     </a>
     <div class="panel-body">
-      <div class="caption">
-        <h4>Град: {{ entity.city.name }}</h4>
-        <h4>Работна позиција: {{ entity.advertDescription.typeOfDeal }}</h4>
-        <h4>Работни часови дневно: {{
+      <div>
+        <h4><b>Град:</b> {{ entity.city.name }}</h4>
+        <h4><b>Работна позиција:</b> {{ entity.advertDescription.typeOfDeal }}</h4>
+        <h4><b>Работни часови дневно:</b> {{
           entity.advertDescription.dailyWorkingHours }}</h4>
-        <h4>Бруто плата: {{ entity.advertDescription.basicSalary }}</h4>
+        <h4><b>Бруто плата:</b> {{ entity.advertDescription.basicSalary }}</h4>
       </div>
     </div>
-    <div class="col-md-2" ng-if="$root.user.role == 'ROLE_USERS'">
-      <button class="btn btn-primary btn-xs" ng-click="addToCart()">
-        <i class="fa fa-fw fa-shopping-cart"></i> Add to cart &nbsp;<span
-        class="glyphicon glyphicon-shopping-cart"></span>
-      </button>
-    </div>
-    <br>
-    <br>
+    <div class="center">
+      <div class="col-md-4" ng-if="$root.user.role == 'ROLE_USERS'">
+        <button class="btn btn-dangerous btn-xs"  ng-click="addToCart()">
+          <i class="fa fa-fw fa-shopping-cart"></i> Во кошничка &nbsp;<span
+          class="glyphicon glyphicon-shopping-cart"></span>
+        </button>
+      </div>
 
-    <div class="col-md-2" ng-if="$root.user.role == 'ROLE_USERS'">
-      <button class="btn btn-dangerous btn-xs" ng-click="addToFavorite()">
-        <i class="fa fa-fw fa-star"></i> Add to favorite &nbsp;<span
-        class="glyphicon glyphicon-star"></span>
-      </button>
+      <div class="col-md-4" ng-if="$root.user.role == 'ROLE_USERS'">
+        <button class="btn btn-dangerous btn-xs " style="margin-left: 100%;"  ng-click="addToFavorite()">
+          <i class="fa fa-fw fa-star"></i> Oмилени &nbsp;<span
+          class="glyphicon glyphicon-star"></span>
+        </button>
+      </div>
     </div>
     <br>
     <br>
@@ -85,38 +86,37 @@
   <div ng-if="entity.category.name == 'Волонтирање'" class="panel panel-default">
     <a href="#/advert/details/{{entity.id}}" class="cliclable">
       <div class="panel-heading advert-panel-header-success">
-        <h3>
-          <small class="pull-right"><p><span class="glyphicon glyphicon-magnet"></span> {{ entity.category.name }}</p>
-          </small>
-          <span class="glyphicon glyphicon-bullhorn"></span> {{ entity.advertName }}
+        <h3 class="text-center">
+ {{ entity.advertName }}<br/>
+          <div class=" text-capitalize" style="font-size: small; margin-top:2% "><p><span class="glyphicon glyphicon-magnet"></span> {{ entity.category.name }}
+          </p></div>
         </h3>
       </div>
     </a>
     <div class="panel-body">
-      <div class="caption">
-        <h4>Град: {{ entity.city.name }}</h4>
-        <h4>Работна позиција: {{ entity.advertDescription.typeOfDeal }}</h4>
-        <h4>Работни часови дневно: {{
+      <div>
+        <h4><b>Град:</b> {{ entity.city.name }}</h4>
+        <h4><b>Работна позиција:</b> {{ entity.advertDescription.typeOfDeal }}</h4>
+        <h4><b>Работни часови дневно:</b> {{
           entity.advertDescription.dailyWorkingHours }}</h4>
-        <h4>Бруто плата: {{ entity.advertDescription.basicSalary }}</h4>
+        <h4><b>Бруто плата:</b> {{ entity.advertDescription.basicSalary }}</h4>
       </div>
     </div>
-
-    <div class="col-md-2" ng-if="$root.user.role == 'ROLE_USERS'">
-      <button class="btn btn-primary btn-xs" ng-click="addToCart()">
-        <i class="fa fa-fw fa-shopping-cart"></i> Add to cart &nbsp;<span
+<div class="center">
+    <div class="col-md-4" ng-if="$root.user.role == 'ROLE_USERS'">
+      <button class="btn btn-dangerous btn-xs"  ng-click="addToCart()">
+        <i class="fa fa-fw fa-shopping-cart"></i> Во кошничка &nbsp;<span
         class="glyphicon glyphicon-shopping-cart"></span>
       </button>
     </div>
-    <br>
-    <br>
 
-    <div class="col-md-2" ng-if="$root.user.role == 'ROLE_USERS'">
-      <button class="btn btn-dangerous btn-xs" ng-click="addToFavorite()">
-        <i class="fa fa-fw fa-star"></i> Add to favorite &nbsp;<span
+    <div class="col-md-4" ng-if="$root.user.role == 'ROLE_USERS'">
+      <button class="btn btn-dangerous btn-xs " style="margin-left: 100%;"  ng-click="addToFavorite()">
+        <i class="fa fa-fw fa-star"></i> Oмилени &nbsp;<span
         class="glyphicon glyphicon-star"></span>
       </button>
     </div>
+</div>
     <br>
     <br>
     <a href="#/advert/details/{{entity.id}}" class="btn btn-success btn-block btn-lg advert-btn-style">

@@ -1,25 +1,26 @@
 <div class="row" style="margin-left: 15px">
-  <h2><p><span class="glyphicon glyphicon-star"></span>Омилени огласи</p></h2>
+  <h2 class="text-center  "><p><span class="glyphicon glyphicon-star "></span>Омилени огласи</p></h2><hr>
   <div ng-repeat="entity in entities">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div ng-if="entity.advert.category.name == 'Работа'"  class="panel panel-default">
         <a href="#/advert/details/{{entity.advert.id}}" class="cliclable">
           <div class="panel-heading advert-panel-header-danger">
-            <h3>
-              <small class="pull-right"><p><span class="glyphicon glyphicon-briefcase"></span>{{ entity.advert.category.name }}
-              </p></small>
-              <span class="glyphicon glyphicon-bullhorn"></span> {{ entity.advert.advertName }}
+            <h3 class="text-center">
+
+              {{ entity.advert.advertName }}<br/>
+              <div class=" text-capitalize" style="font-size: small; margin-top:2% "><p><span class="glyphicon glyphicon-briefcase"></span> {{ entity.advert.category.name }}
+              </p></div>
             </h3>
           </div>
         </a>
 
         <div class="panel-body">
           <div class="caption">
-            <h4>Град: {{ entity.advert.city.name }}</h4>
-            <h4>Работна позиција: {{ entity.advert.advertDescription.typeOfDeal }}</h4>
-            <h4>Работни часови дневно: {{
+            <h4><b>Град: </b>{{ entity.advert.city.name }}</h4>
+            <h4><b>Работна позиција: </b>{{ entity.advert.advertDescription.typeOfDeal }}</h4>
+            <h4><b>Работни часови дневно: </b>{{
               entity.advert.advertDescription.dailyWorkingHours }}</h4>
-            <h4>Бруто плата: {{ entity.advert.advertDescription.basicSalary }}</h4>
+            <h4><b>Бруто плата: </b>{{ entity.advert.advertDescription.basicSalary }}</h4>
           </div>
         </div>
         <a href="#/advert/details/{{entity.advert.id}}" class="btn btn-danger btn-block btn-lg advert-btn-style">
@@ -30,20 +31,21 @@
       <div ng-if="entity.advert.category.name == 'Пракса'" class="panel panel-default">
         <a href="#/advert/details/{{entity.advert.id}}" class="cliclable">
           <div class="panel-heading advert-panel-header-primary">
-            <h3>
-              <small class="pull-right"><p><span class="glyphicon glyphicon-road"></span> {{ entity.advert.category.name }}</p>
-              </small>
-              <span class="glyphicon glyphicon-bullhorn"></span> {{ entity.advert.advertName }}
+            <h3 class="text-center">
+
+              {{ entity.advert.advertName }}<br/>
+              <div class=" text-capitalize" style="font-size: small; margin-top:2% "><p><span class="glyphicon glyphicon-road"></span> {{ entity.advert.category.name }}
+              </p></div>
             </h3>
           </div>
         </a>
         <div class="panel-body">
           <div class="caption">
-            <h4>Град: {{ entity.advert.city.name }}</h4>
-            <h4>Работна позиција: {{ entity.advert.advertDescription.typeOfDeal }}</h4>
-            <h4>Работни часови дневно: {{
+            <h4><b>Град: </b>{{ entity.advert.city.name }}</h4>
+            <h4><b>Работна позиција: </b>{{ entity.advert.advertDescription.typeOfDeal }}</h4>
+            <h4><b>Работни часови дневно:</b> {{
               entity.advert.advertDescription.dailyWorkingHours }}</h4>
-            <h4>Бруто плата: {{ entity.advert.advertDescription.basicSalary }}</h4>
+            <h4><b>Бруто плата:</b> {{ entity.advert.advertDescription.basicSalary }}</h4>
           </div>
         </div>
         <a href="#/advert/details/{{entity.advert.id}}" class="btn btn-primary btn-block btn-lg advert-btn-style">
@@ -54,20 +56,21 @@
       <div ng-if="entity.advert.category.name == 'Волонтирање'" class="panel panel-default">
         <a href="#/advert/details/{{entity.advert.id}}" class="cliclable">
           <div class="panel-heading advert-panel-header-success">
-            <h3>
-              <small class="pull-right"><p><span class="glyphicon glyphicon-magnet"></span> {{ entity.advert.category.name }}</p>
-              </small>
-              <span class="glyphicon glyphicon-bullhorn"></span> {{ entity.advert.advertName }}
+            <h3 class="text-center">
+
+              {{ entity.advert.advertName }}<br/>
+              <div class=" text-capitalize" style="font-size: small; margin-top:2% "><p><span class="glyphicon glyphicon-magnet"></span> {{ entity.advert.category.name }}
+              </p></div>
             </h3>
           </div>
         </a>
         <div class="panel-body">
           <div class="caption">
-            <h4>Град: {{ entity.advert.city.name }}</h4>
-            <h4>Работна позиција: {{ entity.advert.advertDescription.typeOfDeal }}</h4>
-            <h4>Работни часови дневно: {{
+            <h4><b>Град: </b>{{ entity.advert.city.name }}</h4>
+            <h4><b>Работна позиција: </b>{{ entity.advert.advertDescription.typeOfDeal }}</h4>
+            <h4><b>Работни часови дневно: </b>{{
               entity.advert.advertDescription.dailyWorkingHours }}</h4>
-            <h4>Бруто плата: {{ entity.advert.advertDescription.basicSalary }}</h4>
+            <h4><b>Бруто плата: </b>{{ entity.advert.advertDescription.basicSalary }}</h4>
           </div>
         </div>
         <a href="#/advert/details/{{entity.advert.id}}" class="btn btn-success btn-block btn-lg advert-btn-style">

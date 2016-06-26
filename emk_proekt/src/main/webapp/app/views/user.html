@@ -1,7 +1,7 @@
 <div class="row" ng-if="!$root.user || $root.user.role == 'ROLE_ADMIN'">
-  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12  ">
     <div class="panel top-buffer">
-      <h2>Корисник</h2>
+      <h2 class="text-center">Корисник</h2>
       <div>
         <label>Име</label>
         <input type="text" class="form-control" ng-model="entity.fistName"/>
@@ -26,11 +26,11 @@
       </div>
       <br/>
       <button ng-if="$root.user.role == 'ROLE_ADMIN'"  ng-click="save()" class="btn btn-info center-block">
-        <i class="glyphicon glyphicon-save"></i> Save
+        <i class="glyphicon glyphicon-save"></i> Зачувај
       </button>
       <a href="/e-comerce/#/login" class="aRedirect">
       <button ng-if="$root.user.role != 'ROLE_ADMIN'" ng-click="save()" class="btn btn-info center-block">
-        <i class="glyphicon glyphicon-save"></i> Save
+        <i class="glyphicon glyphicon-save"></i> Зачувај
       </button>
       </a>
     </div>
